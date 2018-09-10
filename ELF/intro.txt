@@ -1,0 +1,89 @@
+ELF - Executable Linkable Format
+
+Standard file format for:
+	- Executables
+	- Object Code
+	- Shared Libraries
+	- Core Dumps
+
+ELF Format:
+	[Program Header Table] - Describes 0 or more memory segments
+	[Section Header Table] - Describes 0 or more sections
+	[Data from Header Table Entries] - Data referred to by Program/Section header tables
+
+	Segments contain info needed to Runtime Execution of the file
+	Sections contain data for linking & relocation.
+
+	Any byte in the entire file can be owned by ONE section at most
+	Orphan bytes can occur which are owned by no sections.
+
+File Header:
+	The ELF header defines whether to use 32-bit or 64-bit addresses.
+	Header contains 3 fields affected by this setting, and offset other fields that follow.
+
+	Header is 52 bytes long for 32-bit binary
+	Header is 64 bytes long for 64-bit binary
+
+	OFFSET    SIZE(Bytes) FIELD                       PURPOSE
+	32|64     32|64  
+	-----------------------------------------------------------------
+	0x00       4          e_ident [EI_MAG0->EI_MAG3]  0x7F E L F (Magic Number) 
+	0x04       1          e_ident [EI_CLASS]          1 (32bit), 2 (64bit)
+	0x05       1          e_ident [EI_DATA]           1 (little-end), 2 (big-end)
+	0x06       1          e_ident [EI_VERSION]        1 (ELF VERSION 1)
+	0x07       1          e_ident [EI_OSABI]          Identifies the OS
+	0x08       1          e_ident [EI_ABIVERSION]     ABI Version (if needed)
+	0x09       7          e_ident [EI_PAD]            Currently Unused
+	0x10       2          e_type                      Identifies object file type
+	0x12       2          e_machine                   ISA (Instruction Set Architecture)
+	0x14       4          e_version                   1 (ELF Version 1)
+	0x18       4|8        e_entry                     Memory Address of the process entry point
+	0x1C|0x20  4|8        e_phoff                     points to Program Header Table
+	0x20|0x28  4|8        e_shoff                     points to Section Header Table
+	0x24|0x30  4          e_flags                     Interpretation depends on ARCH
+	0x28|0x34  2          e_ehsize                    Contains size of this header
+	0x2A|0x36  2          e_phentsize                 Size of Program Header Table Entry
+	0x2C|0x38  2          e_phnum                     Num of entries in Program Header Table
+	0x2E|0x3A  2          e_shentsize                 Size of section Table Header Entry
+	0x30|0x3C  2          e_shnum                     Num of entries in Section Header Table 
+	0x32|0x3E  2          e_shstrndx                  Index of Section Table Header containing section names.
+	
+
+Keywords:
+	- ABI - Application Binary Interface (TODO: Devote page to this)
+	- Memory Segment (TODO: Devote page to this)
+	- 
+
+Info:
+EI_OSABI values:
+	0x00 - System V 
+	0x03 - Linux
+	0x06 - Solaris
+	0x0c - OpenBSD
+
+
+e_type values:
+	0x00 ET_NONE
+	0x01 ET_REL
+	0x02 ET_EXEC
+	0x03 ET_DYN
+	0x04 ET_CORE
+	0xFE00 ET_LOOS
+	0xFEFF ET_HIOS
+	0xFF00 ET_LOPROC
+	0xFFFF ET_HIPROC
+
+e_machine values:
+	0x00 No ISA
+	0x02 SPARC
+	0x03 x86
+	0x08 MIPS
+	0x28 ARM
+	0x3E x86-64
+
+
+
+
+
+-----
+Wikipedia - Executable and Linkable Format
