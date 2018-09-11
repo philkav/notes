@@ -11,7 +11,7 @@ ELF Format:
 	[Section Header Table] - Describes 0 or more sections
 	[Data from Header Table Entries] - Data referred to by Program/Section header tables
 
-	Segments contain info needed to Runtime Execution of the file
+	Segments contain info needed for Runtime Execution of the file
 	Sections contain data for linking & relocation.
 
 	Any byte in the entire file can be owned by ONE section at most
