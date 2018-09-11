@@ -1,1 +1,31 @@
 JAVA SE topics:
+
+Core
+  - Corba
+  - HotSpot VM
+  - JNDI
+  - Mntr-Mgmt
+  - Tools/APIs
+  - XML
+  
+  
+[Corba] - Common Object Request Broker Architecture
+         Provides standards-based interoperability and connectivity.
+         It enables communication between softwarwe written in different languages and running on different machines.
+         
+         
+[HotSpot] is a JVM. It features improved performance methods via :
+ - Just-in-time compilation
+ - Adaptive optimization
+HotSpot also provides:
+ - A Java Classloader
+ - A Java Bytecode Interpreter
+ - Client & Server Virtual Machines optimized for their specific uses
+ - Multiple Garbage Collectors
+ - Supporting Runtime Libraries
+ 
+ 
+ [JNDI] - Java Naming & Directory Interface
+ JNDI is an API that allows Java software clients to discover and lookup data/resources via a name
+ 
+ [Mntr-Mgmt] - JMX
